@@ -340,34 +340,33 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-}
-
-.role-prefix {
-    color: var(--text-muted);
 }
 
 .role-carousel {
     position: relative;
-    display: inline-block;
-    text-align: left;
+    display: block;
+    text-align: center;
+    width: 100%;
 }
 
 .role {
     position: absolute;
-    left: 0;
+    left: 50%;
     top: 0;
+    transform: translateX(-50%) translateY(10px);
     white-space: nowrap;
     opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.5s ease;
+    visibility: hidden;
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0.5s;
     color: var(--accent-light);
     font-weight: 500;
 }
 
 .role.active {
     opacity: 1;
-    transform: translateY(0);
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0s;
 }
 
 .hero-description {
@@ -1067,10 +1066,17 @@ a {
     background: var(--bg-secondary);
 }
 
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+.contact-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.btn-linkedin {
+    padding: 18px 40px;
+    font-size: 1.05rem;
+    border-radius: 16px;
 }
 
 .contact-card {
@@ -1200,8 +1206,7 @@ a {
     }
 
     .skills-grid,
-    .cert-grid,
-    .contact-grid {
+    .cert-grid {
         grid-template-columns: 1fr;
     }
 
