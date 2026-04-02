@@ -1136,6 +1136,17 @@ a {
     color: var(--text-muted);
 }
 
+.footer-claude-link {
+    color: var(--accent-light);
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.footer-claude-link:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
 /* ---------- Scroll Animations ---------- */
 .fade-in {
     opacity: 0;
