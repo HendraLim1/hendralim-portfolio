@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hendra Lim | IT Professional & Cybersecurity Specialist</title>
+    <meta name="description" content="Hendra Lim — IT Professional specializing in infrastructure modernization, cybersecurity, and AI. Based in Sydney, Australia.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">HL</a>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#impact" class="nav-link">Impact</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#learning" class="nav-link">Growing</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" class="mobile-menu-link">About</a>
+        <a href="#impact" class="mobile-menu-link">Impact</a>
+        <a href="#experience" class="mobile-menu-link">Experience</a>
+        <a href="#skills" class="mobile-menu-link">Skills</a>
+        <a href="#learning" class="mobile-menu-link">Growing</a>
+        <a href="projects.html" class="mobile-menu-link">Projects</a>
+        <a href="#contact" class="mobile-menu-link">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Based in Sydney, Australia
+            </div>
+            <h1 class="hero-title">
+                Hi, I'm <span class="highlight">Hendra Lim</span>
+            </h1>
+            <div class="hero-roles">
+                <span class="role-prefix">I</span>
+                <span class="role-carousel" id="roleCarousel">
+                    <span class="role active">modernise legacy infrastructure</span>
+                    <span class="role">bridge cybersecurity & compliance</span>
+                    <span class="role">build with AI-driven thinking</span>
+                    <span class="role">lead & empower tech communities</span>
+                </span>
+            </div>
+            <p class="hero-description">
+                From civil engineering to cybersecurity, from on-prem servers to Azure cloud — I thrive where legacy meets modern. Currently driving enterprise IT transformation at Legrand, while leading the next generation of IT professionals as Vice Chair of ACS EPC.
+            </p>
+            <div class="hero-creds">
+                <span class="cred-badge">ISO 27001 Provisional Auditor</span>
+                <span class="cred-badge">ISC2 CC Certified</span>
+                <span class="cred-badge">ACS EPC Vice Chair</span>
+            </div>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="Hendra_Lim_CV.pdf" class="btn btn-secondary" download>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download CV
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Impact by Numbers -->
+    <section class="section impact" id="impact">
+        <div class="container">
+            <h2 class="section-label">Impact</h2>
+            <h3 class="section-title">Results, not just responsibilities</h3>
+            <div class="stats-grid">
+                <div class="stat-card" data-count="150" data-suffix="+">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">IoT Issues Resolved</span>
+                    <span class="stat-context">Smart switches, intercoms & emergency lighting at Legrand</span>
+                </div>
+                <div class="stat-card" data-count="20" data-suffix="%">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">Device Reliability Improved</span>
+                    <span class="stat-context">Through firmware testing & stability fixes</span>
+                </div>
+                <div class="stat-card" data-count="16" data-suffix="+">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">Team Members Trained</span>
+                    <span class="stat-context">Coaching staff to a 10% customer service improvement</span>
+                </div>
+                <div class="stat-card" data-count="200" data-suffix="+">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">Students Consulted</span>
+                    <span class="stat-context">Contributing to 30% enrolment increase</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / My Story -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-label">My Story</h2>
+            <h3 class="section-title">The path less conventional</h3>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-lead">
+                        I didn't take the straight path into tech — and that's exactly what makes me effective.
+                    </p>
+                    <p>
+                        I moved from Indonesia to Sydney to study civil engineering at UTS, where I earned a Dean's Merit Award and was invited to their Leadership Program. But when ChatGPT launched and AI began reshaping every industry, I saw the future clearly: technology isn't just a career — it's the foundation everything else is being built on.
+                    </p>
+                    <p>
+                        So I pivoted. I completed a Bachelor of IT in Cyber Security at Kent Institute, graduating on the Dean's List. While studying, I worked as a Shift Manager at McDonald's and a Shift Supervisor at Starbucks — not just to pay the bills, but learning to lead teams under pressure, solve problems in real-time, and deliver results when it matters.
+                    </p>
+                    <p>
+                        Today, I'm the person who turns complexity into clarity. At Australian Plastic Profiles (now part of Legrand), I'm not just an IT Assistant — I'm hands-on in a full enterprise transformation: migrating on-prem servers to Azure, deploying network infrastructure, transitioning SAP B1 to the cloud, and preparing for internal audits. I thrive when things are messy and need to be made right.
+                    </p>
+                    <p>
+                        Outside of work, I serve as Vice Chair of the ACS Emerging Professional Committee, where I plan events, lead meetings, and MC conferences — because I believe in giving back to the community that welcomed me.
+                    </p>
+                </div>
+                <div class="about-timeline">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">2016–2019</span>
+                                <h4>Student Consultant</h4>
+                                <p>Central International Education, Batam</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">2019–2020</span>
+                                <h4>Diploma of Engineering</h4>
+                                <p>UTS College — Dean's Merit Award</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">2020–2022</span>
+                                <h4>Civil Engineering (Hons)</h4>
+                                <p>University of Technology Sydney</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item pivot">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">2022</span>
+                                <h4>The Pivot</h4>
+                                <p>Engineering → Cybersecurity</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">2022–2025</span>
+                                <h4>BIT Cyber Security</h4>
+                                <p>Kent Institute — Dean's List</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">2024–2025</span>
+                                <h4>Technical Service Intern</h4>
+                                <p>Legrand, Sydney</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item active">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">2025–Present</span>
+                                <h4>IT Assistant</h4>
+                                <p>Australian Plastic Profiles (Legrand)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item active">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">2024–Present</span>
+                                <h4>Vice Chair, ACS EPC</h4>
+                                <p>NSW Branch</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <h2 class="section-label">Experience</h2>
+            <h3 class="section-title">Where I've made an impact</h3>
+            <div class="experience-grid">
+                <!-- Current Role -->
+                <div class="exp-card featured">
+                    <div class="exp-header">
+                        <div class="exp-company">
+                            <h4>Australian Plastic Profiles <span class="exp-acquired">(Legrand)</span></h4>
+                            <span class="exp-location">Sydney, NSW</span>
+                        </div>
+                        <span class="exp-badge current">Current Role</span>
+                    </div>
+                    <h5 class="exp-title">IT Assistant</h5>
+                    <span class="exp-date">July 2025 – Present</span>
+                    <div class="exp-details">
+                        <div class="exp-highlight">
+                            <h6>What I Actually Do</h6>
+                            <p>Far beyond the title — I'm embedded in a full-scale enterprise IT transformation following Legrand's acquisition. My work spans infrastructure, cloud, networking, and compliance.</p>
+                        </div>
+                        <ul class="exp-list">
+                            <li>Leading migration of on-premises servers to Legrand's Azure environment</li>
+                            <li>Deploying new network infrastructure — switches, firewalls, and core switches aligned to Legrand's ecosystem</li>
+                            <li>Migrating SAP B1 from on-prem to Azure cloud</li>
+                            <li>Completed full Outlook/email migration to Legrand systems</li>
+                            <li>Day-to-day IT support across the factory floor</li>
+                            <li>Preparing for upcoming internal audit (June 2026)</li>
+                            <li>Hands-on with system configuration, SAP B1 administration, and Azure management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Legrand Intern -->
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-company">
+                            <h4>Legrand</h4>
+                            <span class="exp-location">Sydney, NSW</span>
+                        </div>
+                    </div>
+                    <h5 class="exp-title">Technical Service Intern</h5>
+                    <span class="exp-date">May 2024 – June 2025</span>
+                    <div class="exp-details">
+                        <div class="exp-highlight">
+                            <h6>The Real Challenge</h6>
+                            <p>Solving real-world IoT problems where documentation didn't match reality. On-site troubleshooting meant figuring out whether issues were product faults, configuration errors, or client environment problems — then turning client requests into working solutions.</p>
+                        </div>
+                        <ul class="exp-list">
+                            <li>Resolved 150+ customer inquiries for IoT devices (smart switches, intercoms, emergency lighting)</li>
+                            <li>Improved device reliability by ~20% through firmware stability testing</li>
+                            <li>Performed risk assessments and technical documentation for product compliance</li>
+                            <li>Collaborated across engineering, customer support, and sales teams — expediting issue resolution by 15%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Starbucks -->
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-company">
+                            <h4>Starbucks</h4>
+                            <span class="exp-location">Sydney, NSW</span>
+                        </div>
+                    </div>
+                    <h5 class="exp-title">Shift Supervisor</h5>
+                    <span class="exp-date">April 2022 – Present</span>
+                    <div class="exp-details">
+                        <div class="exp-highlight">
+                            <h6>Why This Matters</h6>
+                            <p>Leadership isn't just a tech skill — managing 16+ people under pressure, solving problems in real-time, and maintaining quality standards taught me skills no classroom could.</p>
+                        </div>
+                        <ul class="exp-list">
+                            <li>Trained and supervised 16+ staff, achieving 10% improvement in customer service scores</li>
+                            <li>Reduced inventory waste by 5% through effective management strategies</li>
+                            <li>Passed all health and safety inspections without violations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- McDonald's -->
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-company">
+                            <h4>McDonald's</h4>
+                            <span class="exp-location">Sydney, NSW</span>
+                        </div>
+                    </div>
+                    <h5 class="exp-title">Shift Manager</h5>
+                    <span class="exp-date">August 2019 – June 2022</span>
+                    <div class="exp-details">
+                        <ul class="exp-list">
+                            <li>Managed high-volume operations, supervising up to 12 staff per shift</li>
+                            <li>Achieved 15% reduction in customer wait times</li>
+                            <li>Reduced administrative processing time by 25% through streamlined procedures</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Certifications -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <h2 class="section-label">Skills & Certifications</h2>
+            <h3 class="section-title">What I bring to the table</h3>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <h4>Cybersecurity & GRC</h4>
+                    <div class="skill-tags">
+                        <span>ISO 27001</span>
+                        <span>Risk Assessment</span>
+                        <span>Compliance</span>
+                        <span>Security Auditing</span>
+                        <span>Technical Documentation</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    </div>
+                    <h4>Infrastructure & Cloud</h4>
+                    <div class="skill-tags">
+                        <span>Azure</span>
+                        <span>AWS</span>
+                        <span>SAP B1</span>
+                        <span>Networking</span>
+                        <span>Server Migration</span>
+                        <span>Firewalls</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                    </div>
+                    <h4>Development</h4>
+                    <div class="skill-tags">
+                        <span>Python</span>
+                        <span>Java</span>
+                        <span>.NET</span>
+                        <span>React.js</span>
+                        <span>HTML/CSS</span>
+                        <span>MySQL</span>
+                        <span>Git</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h4>Leadership & Communication</h4>
+                    <div class="skill-tags">
+                        <span>Team Leadership</span>
+                        <span>Public Speaking</span>
+                        <span>Project Management</span>
+                        <span>Stakeholder Engagement</span>
+                        <span>Mentoring</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle">Certifications</h3>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                    </div>
+                    <h4>ISO/IEC 27001 Provisional Auditor</h4>
+                    <span class="cert-issuer">PECB</span>
+                    <span class="cert-date">February 2025</span>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h4>CC — Certified in Cybersecurity</h4>
+                    <span class="cert-issuer">ISC2</span>
+                    <span class="cert-date">April 2024</span>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+                    </div>
+                    <h4>AWS Cloud Practitioner Essentials</h4>
+                    <span class="cert-issuer">Coursera</span>
+                    <span class="cert-date">August 2023</span>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <h4>Google IT Support Professional</h4>
+                    <span class="cert-issuer">Google</span>
+                    <span class="cert-date">March 2023</span>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle">Languages</h3>
+            <div class="lang-grid">
+                <div class="lang-card">
+                    <span class="lang-name">Indonesian</span>
+                    <span class="lang-level">Native</span>
+                    <div class="lang-bar"><div class="lang-fill" style="width: 100%"></div></div>
+                </div>
+                <div class="lang-card">
+                    <span class="lang-name">English</span>
+                    <span class="lang-level">Professional Working</span>
+                    <div class="lang-bar"><div class="lang-fill" style="width: 85%"></div></div>
+                </div>
+                <div class="lang-card">
+                    <span class="lang-name">Chinese</span>
+                    <span class="lang-level">Limited Working</span>
+                    <div class="lang-bar"><div class="lang-fill" style="width: 45%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Currently Learning -->
+    <section class="section learning" id="learning">
+        <div class="container">
+            <h2 class="section-label">Growing</h2>
+            <h3 class="section-title">What I'm building next</h3>
+            <p class="section-description">I believe in staying ahead of the curve. Here's what I'm actively working toward.</p>
+            <div class="learning-grid">
+                <div class="learning-card">
+                    <div class="learning-progress">
+                        <svg viewBox="0 0 36 36" class="progress-ring">
+                            <path class="progress-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <path class="progress-fill" stroke-dasharray="60, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        </svg>
+                        <span class="progress-text">In Progress</span>
+                    </div>
+                    <h4>Anthropic Certified AI Architect</h4>
+                    <p>Completing all Claude certification courses to earn the AI Architect credential — building expertise in prompt engineering, AI safety, and enterprise AI deployment.</p>
+                </div>
+                <div class="learning-card">
+                    <div class="learning-progress">
+                        <svg viewBox="0 0 36 36" class="progress-ring">
+                            <path class="progress-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <path class="progress-fill active" stroke-dasharray="80, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        </svg>
+                        <span class="progress-text">Ongoing</span>
+                    </div>
+                    <h4>Enterprise IT Transformation</h4>
+                    <p>Gaining deep hands-on experience in Azure cloud migration, SAP B1 administration, and network infrastructure deployment through my current role at Legrand.</p>
+                </div>
+                <div class="learning-card">
+                    <div class="learning-progress">
+                        <svg viewBox="0 0 36 36" class="progress-ring">
+                            <path class="progress-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <path class="progress-fill" stroke-dasharray="45, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        </svg>
+                        <span class="progress-text">Preparing</span>
+                    </div>
+                    <h4>Internal Audit Leadership</h4>
+                    <p>Preparing for an upcoming internal audit — applying ISO 27001 knowledge and compliance frameworks in a real enterprise acquisition context.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial / Quote -->
+    <section class="section quote-section">
+        <div class="container">
+            <blockquote class="personal-quote">
+                <p>"I don't just fix problems — I make sure they don't come back. Whether it's a misconfigured IoT device on-site or migrating an entire company's infrastructure to the cloud, I approach every challenge with curiosity, persistence, and a commitment to getting it right."</p>
+                <cite>— Hendra Lim</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-label">Contact</h2>
+            <h3 class="section-title">Let's connect</h3>
+            <p class="section-description">I'm always open to discussing new opportunities, collaborations, or just talking tech.</p>
+            <div class="contact-grid">
+                <a href="mailto:lim_hendra825@yahoo.co.id" class="contact-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <h4>Email</h4>
+                    <span>lim_hendra825@yahoo.co.id</span>
+                </a>
+                <a href="https://www.linkedin.com/in/limhendra/" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    <h4>LinkedIn</h4>
+                    <span>linkedin.com/in/limhendra</span>
+                </a>
+                <a href="tel:+61402755477" class="contact-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <h4>Phone</h4>
+                    <span>+61 402 755 477</span>
+                </a>
+                <div class="contact-card location">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <h4>Location</h4>
+                    <span>Sydney, NSW, Australia</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <span class="footer-logo">Hendra Lim</span>
+                <span class="footer-copy">&copy; 2025 — Built with purpose.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
