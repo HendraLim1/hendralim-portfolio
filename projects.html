@@ -1,251 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Hendra Lim</title>
+    <title>Projects — Hendra Lim</title>
     <meta name="description" content="Project case studies by Hendra Lim — IT infrastructure, cybersecurity, and software modernisation.">
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        /* Projects-specific styles */
-        .projects-hero {
-            padding: 140px 24px 60px;
-            text-align: center;
-        }
-
-        .projects-grid {
-            display: grid;
-            gap: 32px;
-            margin-top: 48px;
-        }
-
-        .project-case-study {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .project-case-study:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-md);
-        }
-
-        .project-header {
-            padding: 36px 36px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .project-tag {
-            padding: 4px 12px;
-            background: var(--accent-glow);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--accent-light);
-        }
-
-        .project-tag.infra {
-            background: rgba(34, 197, 94, 0.1);
-            border-color: rgba(34, 197, 94, 0.2);
-            color: #22c55e;
-        }
-
-        .project-tag.security {
-            background: rgba(245, 158, 11, 0.1);
-            border-color: rgba(245, 158, 11, 0.2);
-            color: #f59e0b;
-        }
-
-        .project-status {
-            padding: 4px 14px;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .project-status.completed {
-            background: rgba(34, 197, 94, 0.1);
-            color: #22c55e;
-            border: 1px solid rgba(34, 197, 94, 0.2);
-        }
-
-        .project-status.in-progress {
-            background: rgba(99, 102, 241, 0.1);
-            color: var(--accent-light);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-        }
-
-        .project-body {
-            padding: 24px 36px 36px;
-        }
-
-        .project-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
-        }
-
-        .project-phases {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .project-phase {
-            padding: 24px;
-            background: var(--bg-elevated);
-            border-radius: 16px;
-            border: 1px solid var(--border);
-        }
-
-        .phase-label {
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-light);
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .phase-label.problem { color: #ef4444; }
-        .phase-label.action { color: var(--accent-light); }
-        .phase-label.result { color: #22c55e; }
-
-        .project-phase p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .project-phase ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .project-phase ul li {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            padding-left: 16px;
-            position: relative;
-            margin-bottom: 6px;
-        }
-
-        .project-phase ul li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 10px;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--accent);
-        }
-
-        .project-placeholder {
-            background: var(--bg-card);
-            border: 2px dashed var(--border);
-            border-radius: 24px;
-            padding: 60px 36px;
-            text-align: center;
-        }
-
-        .project-placeholder h4 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            color: var(--text-muted);
-        }
-
-        .project-placeholder p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--accent-light);
-            margin-bottom: 24px;
-            transition: gap 0.2s ease;
-        }
-
-        .back-link:hover {
-            gap: 12px;
-        }
-
-        @media (max-width: 768px) {
-            .project-phases {
-                grid-template-columns: 1fr;
-            }
-
-            .project-header {
-                padding: 24px 24px 0;
-            }
-
-            .project-body {
-                padding: 20px 24px 28px;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">HL</a>
+            <a href="index.html" class="nav-logo">Hendra Lim</a>
             <div class="nav-links">
                 <a href="index.html#about" class="nav-link">About</a>
                 <a href="index.html#impact" class="nav-link">Impact</a>
-                <a href="index.html#experience" class="nav-link">Experience</a>
+                <a href="index.html#work" class="nav-link">Work</a>
                 <a href="index.html#skills" class="nav-link">Skills</a>
-                <a href="index.html#learning" class="nav-link">Growing</a>
-                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="projects.html" class="nav-link active">Projects</a>
                 <a href="index.html#contact" class="nav-link">Contact</a>
             </div>
-            <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
-                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                </button>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html#about" class="mobile-menu-link">About</a>
         <a href="index.html#impact" class="mobile-menu-link">Impact</a>
-        <a href="index.html#experience" class="mobile-menu-link">Experience</a>
+        <a href="index.html#work" class="mobile-menu-link">Work</a>
         <a href="index.html#skills" class="mobile-menu-link">Skills</a>
-        <a href="index.html#learning" class="mobile-menu-link">Growing</a>
         <a href="projects.html" class="mobile-menu-link">Projects</a>
         <a href="index.html#contact" class="mobile-menu-link">Contact</a>
     </div>
@@ -254,125 +43,116 @@
     <section class="projects-hero">
         <div class="container">
             <a href="index.html" class="back-link">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                Back to Home
+                <span class="arrow">←</span>
+                Back to home
             </a>
-            <h2 class="section-label">Projects</h2>
-            <h3 class="section-title">Case Studies & Work Samples</h3>
-            <p class="section-description">Real-world projects with company-sensitive information removed. Each case study follows the Problem → Action → Result framework.</p>
+            <span class="section-kicker">Projects</span>
+            <h2 class="section-title">Case studies and work samples.</h2>
+            <p class="contact-body">Real-world projects with company-sensitive information removed. Each case study follows the Problem → Action → Result framework.</p>
         </div>
     </section>
 
-    <!-- Projects -->
-    <section class="section" style="padding-top: 0;">
+    <section class="section" style="padding-top: 24px;">
         <div class="container">
-            <div class="projects-grid">
+            <div class="projects-list">
 
                 <!-- Project 1: .NET Migration -->
-                <article class="project-case-study">
-                    <div class="project-header">
+                <article class="project-item">
+                    <div class="project-meta">
                         <div class="project-tags">
-                            <span class="project-tag infra">Software Modernisation</span>
+                            <span class="project-tag">Software Modernisation</span>
                             <span class="project-tag">.NET</span>
                         </div>
                         <span class="project-status completed">Completed</span>
                     </div>
-                    <div class="project-body">
-                        <h3 class="project-title">Legacy .NET 2.0 to .NET 10 Migration</h3>
-                        <div class="project-phases">
-                            <div class="project-phase">
-                                <span class="phase-label problem">The Problem</span>
-                                <p>Legacy application running on .NET Framework 2.0 — an end-of-life platform with known security vulnerabilities, no vendor support, and incompatibility with modern infrastructure and deployment pipelines.</p>
-                            </div>
-                            <div class="project-phase">
-                                <span class="phase-label action">What I Did</span>
-                                <ul>
-                                    <li>Audited the existing codebase to map dependencies and breaking changes</li>
-                                    <li>Rewrote and refactored application code to .NET 10</li>
-                                    <li>Updated deprecated APIs and libraries</li>
-                                    <li>Tested for regression and compatibility</li>
-                                </ul>
-                            </div>
-                            <div class="project-phase">
-                                <span class="phase-label result">The Result</span>
-                                <p>Successfully modernised the application to a supported, secure framework — enabling cloud deployment compatibility and reducing long-term maintenance risk.</p>
-                            </div>
+                    <h3 class="project-title">Legacy .NET 2.0 to .NET 10 migration.</h3>
+                    <div class="par-grid">
+                        <div class="par-col">
+                            <span class="par-label">Problem</span>
+                            <p>Legacy application running on .NET Framework 2.0 — an end-of-life platform with known security vulnerabilities, no vendor support, and incompatibility with modern infrastructure and deployment pipelines.</p>
+                        </div>
+                        <div class="par-col">
+                            <span class="par-label">Action</span>
+                            <ul>
+                                <li>Audited the existing codebase to map dependencies and breaking changes.</li>
+                                <li>Rewrote and refactored application code to .NET 10.</li>
+                                <li>Updated deprecated APIs and libraries.</li>
+                                <li>Tested for regression and compatibility.</li>
+                            </ul>
+                        </div>
+                        <div class="par-col">
+                            <span class="par-label">Result</span>
+                            <p>Successfully modernised the application to a supported, secure framework — enabling cloud deployment compatibility and reducing long-term maintenance risk.</p>
                         </div>
                     </div>
                 </article>
 
                 <!-- Project 2: Azure Migration -->
-                <article class="project-case-study">
-                    <div class="project-header">
+                <article class="project-item">
+                    <div class="project-meta">
                         <div class="project-tags">
-                            <span class="project-tag infra">Infrastructure</span>
+                            <span class="project-tag">Infrastructure</span>
                             <span class="project-tag">Azure</span>
                             <span class="project-tag">SAP B1</span>
                         </div>
-                        <span class="project-status in-progress">In Progress</span>
+                        <span class="project-status">In progress</span>
                     </div>
-                    <div class="project-body">
-                        <h3 class="project-title">Enterprise On-Prem to Azure Cloud Migration</h3>
-                        <div class="project-phases">
-                            <div class="project-phase">
-                                <span class="phase-label problem">The Problem</span>
-                                <p>Following a corporate acquisition, the entire IT infrastructure needed to be migrated from on-premises servers to the parent company's Azure cloud environment — including SAP B1, email systems, and networking.</p>
-                            </div>
-                            <div class="project-phase">
-                                <span class="phase-label action">What I Did</span>
-                                <ul>
-                                    <li>Planning and executing server migration to Azure</li>
-                                    <li>Migrating SAP B1 from on-prem to cloud</li>
-                                    <li>Completed Outlook/email migration</li>
-                                    <li>Deploying new switches, firewalls, and core switches</li>
-                                    <li>Ensuring business continuity during transition</li>
-                                </ul>
-                            </div>
-                            <div class="project-phase">
-                                <span class="phase-label result">The Result</span>
-                                <p>Email migration completed successfully. Network and SAP migrations actively underway — progressing toward full integration with parent company's ecosystem.</p>
-                            </div>
+                    <h3 class="project-title">Enterprise on-prem to Azure cloud migration.</h3>
+                    <div class="par-grid">
+                        <div class="par-col">
+                            <span class="par-label">Problem</span>
+                            <p>Following a corporate acquisition, the entire IT infrastructure needed to be migrated from on-premises servers to the parent company's Azure cloud environment — including SAP B1, email systems, and networking.</p>
+                        </div>
+                        <div class="par-col">
+                            <span class="par-label">Action</span>
+                            <ul>
+                                <li>Planning and executing server migration to Azure.</li>
+                                <li>Migrating SAP B1 from on-prem to cloud.</li>
+                                <li>Completed Outlook/email migration.</li>
+                                <li>Deploying new switches, firewalls, and core switches.</li>
+                                <li>Ensuring business continuity during transition.</li>
+                            </ul>
+                        </div>
+                        <div class="par-col">
+                            <span class="par-label">Result</span>
+                            <p>Email migration completed successfully. Network and SAP migrations actively underway — progressing toward full integration with the parent company's ecosystem.</p>
                         </div>
                     </div>
                 </article>
 
                 <!-- Project 3: Internal Audit -->
-                <article class="project-case-study">
-                    <div class="project-header">
+                <article class="project-item">
+                    <div class="project-meta">
                         <div class="project-tags">
-                            <span class="project-tag security">GRC / Compliance</span>
-                            <span class="project-tag security">ISO 27001</span>
+                            <span class="project-tag">GRC / Compliance</span>
+                            <span class="project-tag">ISO 27001</span>
                         </div>
-                        <span class="project-status in-progress">In Progress</span>
+                        <span class="project-status">In progress</span>
                     </div>
-                    <div class="project-body">
-                        <h3 class="project-title">Internal Audit Preparation</h3>
-                        <div class="project-phases">
-                            <div class="project-phase">
-                                <span class="phase-label problem">The Problem</span>
-                                <p>An upcoming internal audit required comprehensive preparation to ensure compliance with security standards and regulatory requirements in the context of a recent acquisition.</p>
-                            </div>
-                            <div class="project-phase">
-                                <span class="phase-label action">What I Did</span>
-                                <ul>
-                                    <li>Applying ISO 27001 framework knowledge to audit preparation</li>
-                                    <li>Reviewing and documenting security controls</li>
-                                    <li>Identifying gaps and preparing remediation plans</li>
-                                    <li>Coordinating with stakeholders for evidence gathering</li>
-                                </ul>
-                            </div>
-                            <div class="project-phase">
-                                <span class="phase-label result">The Result</span>
-                                <p>Audit preparation on track for the scheduled review. Detailed documentation and evidence packages being compiled.</p>
-                            </div>
+                    <h3 class="project-title">Internal audit preparation.</h3>
+                    <div class="par-grid">
+                        <div class="par-col">
+                            <span class="par-label">Problem</span>
+                            <p>An upcoming internal audit required comprehensive preparation to ensure compliance with security standards and regulatory requirements in the context of a recent acquisition.</p>
+                        </div>
+                        <div class="par-col">
+                            <span class="par-label">Action</span>
+                            <ul>
+                                <li>Applying ISO 27001 framework knowledge to audit preparation.</li>
+                                <li>Reviewing and documenting security controls.</li>
+                                <li>Identifying gaps and preparing remediation plans.</li>
+                                <li>Coordinating with stakeholders for evidence gathering.</li>
+                            </ul>
+                        </div>
+                        <div class="par-col">
+                            <span class="par-label">Result</span>
+                            <p>Audit preparation on track for the scheduled review. Detailed documentation and evidence packages being compiled.</p>
                         </div>
                     </div>
                 </article>
 
-                <!-- Placeholder for future projects -->
                 <div class="project-placeholder">
-                    <h4>More projects coming soon</h4>
-                    <p>I'm continuously working on new projects and will add case studies as they're completed and sanitised for public viewing.</p>
+                    More projects will be added as they're completed and sanitised for public viewing.
                 </div>
 
             </div>
@@ -383,8 +163,8 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <span class="footer-logo">Hendra Lim</span>
-                <span class="footer-copy">&copy; 2025 — Built with <a href="https://claude.ai/code" target="_blank" rel="noopener noreferrer" class="footer-claude-link">Claude Code</a></span>
+                <span>Hendra Lim</span>
+                <span>&copy; 2025 — Built with <a href="https://claude.ai/code" target="_blank" rel="noopener noreferrer" class="footer-claude-link">Claude Code</a></span>
             </div>
         </div>
     </footer>
