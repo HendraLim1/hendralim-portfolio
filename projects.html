@@ -1,179 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects — Hendra Lim</title>
-    <meta name="description" content="Project case studies by Hendra Lim — IT infrastructure, cybersecurity, and software modernisation.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Hendra Lim</title>
+  <meta name="description" content="Project case studies by Hendra Lim — IT infrastructure, cybersecurity, and software modernisation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* =============================================
+       HENDRA LIM — PROJECTS PAGE
+    ============================================= */
+    :root {
+      --bg:            #F6F1E9;
+      --bg-alt:        #EDE7DA;
+      --bg-card:       #EAE4D6;
+      --bg-card-hover: #E0D9CA;
+      --text:          #1A1814;
+      --text-muted:    #6B6459;
+      --text-subtle:   #9A9087;
+      --accent:        oklch(48% 0.13 38);
+      --accent-mid:    oklch(60% 0.10 38);
+      --green:         #3B7A52;
+      --border:        rgba(26,24,20,0.09);
+      --border-strong: rgba(26,24,20,0.18);
+      --max:           1180px;
+      --r:             18px;
+      --r-lg:          24px;
+      --ease:          cubic-bezier(0.22,1,0.36,1);
+      --t:             200ms;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:80px; }
+    body {
+      font-family:'Inter',-apple-system,sans-serif;
+      background:var(--bg); color:var(--text);
+      font-size:16px; line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+    a { color:inherit; text-decoration:none; }
+    ::selection { background:var(--text); color:var(--bg); }
+
+    /* ---- Nav ---- */
+    .nav {
+      position:fixed; top:0; left:0; right:0; z-index:200;
+      padding:16px 0;
+      transition: background var(--t) var(--ease), backdrop-filter var(--t);
+    }
+    .nav.scrolled {
+      background:rgba(246,241,233,0.88);
+      backdrop-filter:saturate(180%) blur(14px);
+      -webkit-backdrop-filter:saturate(180%) blur(14px);
+      box-shadow:0 1px 0 var(--border);
+    }
+    .nav-inner {
+      max-width:var(--max); margin:0 auto; padding:0 40px;
+      display:flex; align-items:center; gap:24px;
+    }
+    .nav-logo {
+      font-family:'DM Serif Display',serif;
+      font-size:18px; letter-spacing:-0.01em; margin-right:auto;
+    }
+    .nav-links { display:flex; gap:24px; }
+    .nav-link { font-size:14px; color:var(--text); opacity:0.65; transition:opacity var(--t); }
+    .nav-link:hover, .nav-link.active { opacity:1; }
+    .nav-projects {
+      font-size:14px; font-weight:600; color:var(--accent);
+      padding:8px 18px; border:1.5px solid var(--accent); border-radius:100px;
+      background:var(--accent); color:#fff;
+    }
+    .nav-cta {
+      font-size:14px; font-weight:500;
+      background:var(--text); color:var(--bg);
+      padding:9px 20px; border-radius:100px;
+      transition:background var(--t), transform var(--t);
+    }
+    .nav-cta:hover { background:#2e2b26; transform:translateY(-1px); }
+    .mob-btn {
+      display:none; flex-direction:column; gap:5px;
+      background:none; border:none; cursor:pointer; padding:8px;
+    }
+    .mob-btn span { display:block; width:22px; height:1.5px; background:var(--text); transition:transform var(--t), opacity var(--t); }
+    .mob-btn.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+    .mob-btn.open span:nth-child(2) { opacity:0; }
+    .mob-btn.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+    .mob-menu {
+      display:none; position:fixed; top:66px; left:16px; right:16px;
+      background:var(--bg-card); border-radius:var(--r-lg);
+      padding:16px 20px; z-index:199;
+      box-shadow:0 12px 40px rgba(26,24,20,0.1);
+      flex-direction:column;
+    }
+    .mob-menu.open { display:flex; }
+    .mob-menu a { font-size:16px; padding:12px 0; border-bottom:1px solid var(--border); color:var(--text); }
+    .mob-menu a:last-child { border-bottom:none; }
+    .mob-menu a.accent-link { color:var(--accent); font-weight:600; }
+
+    /* ---- Wrap ---- */
+    .wrap { max-width:var(--max); margin:0 auto; padding:0 40px; }
+
+    /* ---- Page hero ---- */
+    .page-hero { padding:140px 0 64px; }
+    .back-link {
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:13px; color:var(--text-muted);
+      padding:7px 16px; background:var(--bg-card);
+      border-radius:100px; margin-bottom:40px;
+      transition:background var(--t), color var(--t);
+    }
+    .back-link:hover { background:var(--bg-card-hover); color:var(--text); }
+    .back-arr { transition:transform var(--t); display:inline-block; }
+    .back-link:hover .back-arr { transform:translateX(-3px); }
+    .page-kicker {
+      font-size:12px; font-weight:600; letter-spacing:0.1em;
+      text-transform:uppercase; color:var(--accent);
+      display:inline-flex; align-items:center; gap:8px; margin-bottom:16px;
+    }
+    .page-kicker::before { content:''; width:20px; height:1.5px; background:var(--accent); }
+    .page-title {
+      font-family:'DM Serif Display',serif;
+      font-size:clamp(40px,5vw,72px);
+      line-height:1.0; letter-spacing:-0.03em; margin-bottom:16px;
+    }
+    .page-sub { font-size:18px; color:var(--text-muted); line-height:1.5; max-width:580px; }
+
+    /* ---- Project cards ---- */
+    .projects-list { display:grid; gap:20px; padding-bottom:100px; }
+
+    .proj-card {
+      background:var(--bg-card); border-radius:var(--r-lg);
+      overflow:hidden;
+      transition:background var(--t);
+    }
+    .proj-card:hover { background:var(--bg-card-hover); }
+
+    .proj-stripe { height:5px; }
+    .stripe-infra    { background:linear-gradient(90deg,#3B6EA5,#5B9BD5); }
+    .stripe-dotnet   { background:linear-gradient(90deg,#7B2D8B,#B05FC7); }
+    .stripe-security { background:linear-gradient(90deg,oklch(48% 0.13 38),oklch(60% 0.10 38)); }
+
+    .proj-inner { padding:36px 40px; }
+
+    .proj-top {
+      display:flex; justify-content:space-between; align-items:flex-start;
+      gap:16px; margin-bottom:20px; flex-wrap:wrap;
+    }
+    .proj-tags { display:flex; gap:8px; flex-wrap:wrap; }
+    .proj-tag {
+      font-size:11px; font-weight:500; letter-spacing:0.07em;
+      text-transform:uppercase; color:var(--text-muted);
+      padding:5px 12px; background:var(--bg); border-radius:100px;
+    }
+    .proj-badge {
+      font-size:11px; font-weight:600; letter-spacing:0.08em;
+      text-transform:uppercase; padding:5px 12px; border-radius:100px;
+      white-space:nowrap;
+    }
+    .proj-badge.done { background:rgba(59,122,82,0.15); color:var(--green); }
+    .proj-badge.wip  { background:rgba(26,24,20,0.06); color:var(--text-muted); }
+    .proj-badge.prep { background:rgba(26,24,20,0.06); color:var(--text-muted); }
+
+    .proj-title {
+      font-family:'DM Serif Display',serif;
+      font-size:clamp(26px,2.8vw,38px);
+      line-height:1.1; letter-spacing:-0.02em;
+      margin-bottom:12px;
+    }
+    .proj-summary {
+      font-size:16px; color:var(--text-muted); line-height:1.6;
+      max-width:760px; margin-bottom:32px;
+      border-bottom:1px solid var(--border); padding-bottom:32px;
+    }
+
+    /* PAR grid */
+    .par { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .par-col {
+      background:var(--bg); border-radius:var(--r);
+      padding:24px;
+    }
+    .par-label {
+      font-size:10px; font-weight:600; letter-spacing:0.12em;
+      text-transform:uppercase; color:var(--accent);
+      margin-bottom:12px; display:block;
+    }
+    .par-col p { font-size:14px; color:var(--text); line-height:1.65; }
+    .par-col ul { list-style:none; padding:0; }
+    .par-col ul li {
+      font-size:14px; color:var(--text); line-height:1.6;
+      padding-left:16px; position:relative; margin-bottom:8px;
+    }
+    .par-col ul li:last-child { margin-bottom:0; }
+    .par-col ul li::before {
+      content:''; position:absolute; left:0; top:11px;
+      width:8px; height:1.5px; background:var(--text-muted);
+    }
+
+    /* Outcome callout */
+    .proj-outcome {
+      margin-top:16px;
+      padding:20px 24px;
+      background:var(--bg-card);
+      border-radius:var(--r);
+      border-left:3px solid var(--accent);
+      font-size:14px; color:var(--text-muted); line-height:1.6;
+    }
+    .proj-outcome strong { color:var(--text); font-weight:500; }
+
+    /* Placeholder card */
+    .proj-placeholder {
+      background:var(--bg-card); border-radius:var(--r-lg);
+      padding:48px; text-align:center;
+      border:1.5px dashed var(--border-strong);
+      color:var(--text-muted); font-size:15px; line-height:1.6;
+    }
+    .proj-placeholder span { display:block; font-size:28px; margin-bottom:12px; opacity:0.4; }
+
+    /* ---- Contact (dark) ---- */
+    .contact-section { background:var(--text); color:var(--bg); padding:88px 0; }
+    .contact-inner { max-width:680px; }
+    .contact-kicker {
+      font-size:12px; font-weight:600; letter-spacing:0.1em;
+      text-transform:uppercase; color:var(--accent-mid);
+      display:inline-flex; align-items:center; gap:8px; margin-bottom:20px;
+    }
+    .contact-kicker::before { content:''; width:20px; height:1.5px; background:var(--accent-mid); }
+    .contact-title {
+      font-family:'DM Serif Display',serif;
+      font-size:clamp(40px,5vw,64px); line-height:1.0;
+      letter-spacing:-0.03em; margin-bottom:20px;
+    }
+    .contact-body { font-size:18px; opacity:0.65; line-height:1.5; margin-bottom:40px; max-width:500px; }
+    .contact-btns { display:flex; gap:12px; flex-wrap:wrap; }
+    .btn-light {
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:15px; font-weight:500;
+      background:var(--bg); color:var(--text);
+      padding:13px 24px; border-radius:100px;
+      transition:background var(--t), transform var(--t);
+    }
+    .btn-light:hover { background:#e8e2d8; transform:translateY(-1px); }
+    .contact-location { font-size:13px; opacity:0.4; margin-top:36px; }
+
+    /* ---- Footer ---- */
+    .footer { background:var(--text); color:var(--bg); }
+    .footer-inner {
+      max-width:var(--max); margin:0 auto; padding:28px 40px;
+      display:flex; justify-content:space-between; align-items:center;
+      font-size:13px; opacity:0.4;
+      border-top:1px solid rgba(246,241,233,0.1);
+    }
+
+    /* ---- Fade ---- */
+    .fade { opacity:0; transform:translateY(20px); transition:opacity 0.55s var(--ease), transform 0.55s var(--ease); }
+    .fade.in { opacity:1; transform:translateY(0); }
+
+    /* ---- Responsive ---- */
+    @media (max-width:768px) {
+      .wrap { padding:0 20px; }
+      .nav-inner { padding:0 20px; }
+      .nav-links, .nav-cta, .nav-projects { display:none; }
+      .mob-btn { display:flex; }
+      .page-hero { padding:110px 0 48px; }
+      .proj-inner { padding:24px 20px; }
+      .par { grid-template-columns:1fr; }
+      .footer-inner { flex-direction:column; gap:8px; text-align:center; }
+    }
+  </style>
 </head>
 <body>
-    <nav class="nav" id="nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">Hendra Lim</a>
-            <div class="nav-links">
-                <a href="index.html#about" class="nav-link">About</a>
-                <a href="index.html#impact" class="nav-link">Impact</a>
-                <a href="index.html#work" class="nav-link">Work</a>
-                <a href="index.html#skills" class="nav-link">Skills</a>
-                <a href="projects.html" class="nav-link active">Projects</a>
-            </div>
-            <a href="index.html#contact" class="nav-cta">
-                Get in touch
-                <span class="arrow">→</span>
-            </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
 
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html#about" class="mobile-menu-link">About</a>
-        <a href="index.html#impact" class="mobile-menu-link">Impact</a>
-        <a href="index.html#work" class="mobile-menu-link">Work</a>
-        <a href="index.html#skills" class="mobile-menu-link">Skills</a>
-        <a href="projects.html" class="mobile-menu-link">Projects</a>
-        <a href="index.html#contact" class="mobile-menu-link">Contact</a>
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" style="font-family:'DM Serif Display',serif;">Hendra Lim</a>
+      <div class="nav-links">
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#work" class="nav-link">Work</a>
+        <a href="index.html#skills" class="nav-link">Skills</a>
+      </div>
+      <a href="https://github.com/HendraLim1" target="_blank" rel="noopener" class="nav-link" style="opacity:0.65;display:inline-flex;align-items:center;gap:6px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+      <a href="projects.html" class="nav-projects">Projects →</a>
+      <a href="index.html#contact" class="nav-cta">Get in touch</a>
+      <button class="mob-btn" id="mobBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <!-- Projects Hero -->
-    <section class="projects-hero">
-        <div class="container">
-            <a href="index.html" class="back-link">
-                <span class="arrow">←</span>
-                Back to home
-            </a>
-            <div class="section-header">
-                <span class="section-kicker">Projects</span>
-                <h2 class="section-title">Case studies and work samples.</h2>
-                <p class="section-subtitle">Real-world projects with company-sensitive information removed. Each follows the Problem → Action → Result framework.</p>
+  <div class="mob-menu" id="mobMenu">
+    <a href="index.html#about">About</a>
+    <a href="index.html#work">Work</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="projects.html" class="accent-link">Projects →</a>
+    <a href="index.html#contact">Get in touch</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="wrap">
+      <a href="index.html" class="back-link">
+        <span class="back-arr">←</span> Back to home
+      </a>
+      <div class="page-kicker">Projects</div>
+      <h1 class="page-title" style="font-family:'DM Serif Display',serif;">Case studies<br><em style="color:var(--text-muted);">& real work.</em></h1>
+      <p class="page-sub">Real-world projects with company-sensitive details removed. Each follows a Problem → Action → Result framework.</p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section style="padding-bottom:0;">
+    <div class="wrap">
+      <div class="projects-list">
+
+        <!-- Project 1: Azure Migration -->
+        <article class="proj-card fade">
+          <div class="proj-stripe stripe-infra"></div>
+          <div class="proj-inner">
+            <div class="proj-top">
+              <div class="proj-tags">
+                <span class="proj-tag">Infrastructure</span>
+                <span class="proj-tag">Azure</span>
+                <span class="proj-tag">SAP B1</span>
+                <span class="proj-tag">Networking</span>
+              </div>
+              <span class="proj-badge wip">In Progress</span>
             </div>
-        </div>
-    </section>
-
-    <section class="section" style="padding-top: 0;">
-        <div class="container">
-            <div class="projects-grid">
-
-                <!-- Project 1: .NET Migration -->
-                <article class="project-card">
-                    <div class="project-card-meta">
-                        <div class="project-tags">
-                            <span class="project-tag">Software Modernisation</span>
-                            <span class="project-tag">.NET</span>
-                        </div>
-                        <span class="project-status completed">Completed</span>
-                    </div>
-                    <h3 class="project-title">Legacy .NET 2.0 to .NET 10 migration.</h3>
-                    <div class="par-grid">
-                        <div class="par-col">
-                            <span class="par-label">Problem</span>
-                            <p>Legacy application running on .NET Framework 2.0 — an end-of-life platform with known security vulnerabilities, no vendor support, and incompatibility with modern infrastructure and deployment pipelines.</p>
-                        </div>
-                        <div class="par-col">
-                            <span class="par-label">Action</span>
-                            <ul>
-                                <li>Audited the existing codebase to map dependencies and breaking changes.</li>
-                                <li>Rewrote and refactored application code to .NET 10.</li>
-                                <li>Updated deprecated APIs and libraries.</li>
-                                <li>Tested for regression and compatibility.</li>
-                            </ul>
-                        </div>
-                        <div class="par-col">
-                            <span class="par-label">Result</span>
-                            <p>Successfully modernised the application to a supported, secure framework — enabling cloud deployment compatibility and reducing long-term maintenance risk.</p>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 2: Azure Migration -->
-                <article class="project-card">
-                    <div class="project-card-meta">
-                        <div class="project-tags">
-                            <span class="project-tag">Infrastructure</span>
-                            <span class="project-tag">Azure</span>
-                            <span class="project-tag">SAP B1</span>
-                        </div>
-                        <span class="project-status">In progress</span>
-                    </div>
-                    <h3 class="project-title">Enterprise on-prem to Azure cloud migration.</h3>
-                    <div class="par-grid">
-                        <div class="par-col">
-                            <span class="par-label">Problem</span>
-                            <p>Following a corporate acquisition, the entire IT infrastructure needed to be migrated from on-premises servers to the parent company's Azure cloud environment — including SAP B1, email systems, and networking.</p>
-                        </div>
-                        <div class="par-col">
-                            <span class="par-label">Action</span>
-                            <ul>
-                                <li>Planning and executing server migration to Azure.</li>
-                                <li>Migrating SAP B1 from on-prem to cloud.</li>
-                                <li>Completed Outlook/email migration.</li>
-                                <li>Deploying new switches, firewalls, and core switches.</li>
-                                <li>Ensuring business continuity during transition.</li>
-                            </ul>
-                        </div>
-                        <div class="par-col">
-                            <span class="par-label">Result</span>
-                            <p>Email migration completed successfully. Network and SAP migrations actively underway — progressing toward full integration with the parent company's ecosystem.</p>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3: Internal Audit -->
-                <article class="project-card">
-                    <div class="project-card-meta">
-                        <div class="project-tags">
-                            <span class="project-tag">GRC / Compliance</span>
-                            <span class="project-tag">ISO 27001</span>
-                        </div>
-                        <span class="project-status">In progress</span>
-                    </div>
-                    <h3 class="project-title">Internal audit preparation.</h3>
-                    <div class="par-grid">
-                        <div class="par-col">
-                            <span class="par-label">Problem</span>
-                            <p>An upcoming internal audit required comprehensive preparation to ensure compliance with security standards and regulatory requirements in the context of a recent acquisition.</p>
-                        </div>
-                        <div class="par-col">
-                            <span class="par-label">Action</span>
-                            <ul>
-                                <li>Applying ISO 27001 framework knowledge to audit preparation.</li>
-                                <li>Reviewing and documenting security controls.</li>
-                                <li>Identifying gaps and preparing remediation plans.</li>
-                                <li>Coordinating with stakeholders for evidence gathering.</li>
-                            </ul>
-                        </div>
-                        <div class="par-col">
-                            <span class="par-label">Result</span>
-                            <p>Audit preparation on track for the scheduled review. Detailed documentation and evidence packages being compiled.</p>
-                        </div>
-                    </div>
-                </article>
-
-                <div class="project-placeholder">
-                    More projects will be added as they're completed and sanitised for public viewing.
-                </div>
-
+            <h2 class="proj-title">Enterprise on-prem to Azure cloud migration.</h2>
+            <p class="proj-summary">Following a corporate acquisition, the entire IT infrastructure needed migrating from on-premises to the parent company's Azure environment — covering servers, SAP B1, email, and network infrastructure across 7 branches.</p>
+            <div class="par">
+              <div class="par-col">
+                <span class="par-label">Problem</span>
+                <p>Post-acquisition, Australian Plastic Profiles operated on legacy on-prem infrastructure incompatible with Legrand's cloud-first ecosystem. Every system — from SAP B1 to email to physical networking — needed migrating without disrupting 300+ daily users.</p>
+              </div>
+              <div class="par-col">
+                <span class="par-label">Action</span>
+                <ul>
+                  <li>Planned and executed migration of 8+ on-prem servers to Legrand's Azure environment.</li>
+                  <li>Migrated SAP B1 from on-prem to Azure cloud.</li>
+                  <li>Completed Outlook/email migration for all users across 7 branches.</li>
+                  <li>Designed VDI solution to resolve cross-branch latency issues.</li>
+                  <li>Deployed FortiGate firewalls, network switches, and core switches.</li>
+                  <li>Managed Active Directory and RDS environments throughout transition.</li>
+                </ul>
+              </div>
+              <div class="par-col">
+                <span class="par-label">Result</span>
+                <p>Email migration fully completed. Network infrastructure deployed across branches. SAP B1 and remaining server migrations actively underway — progressing toward full integration with Legrand's ecosystem ahead of the June 2026 audit.</p>
+              </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <span>Hendra Lim · &copy; 2025</span>
-                <span>Built with <a href="https://claude.ai/code" target="_blank" rel="noopener noreferrer" class="footer-claude-link">Claude Code</a></span>
+            <div class="proj-outcome">
+              <strong>Scale:</strong> 300+ users · 7 branches · 8+ servers · Full network refresh — all while maintaining business continuity.
             </div>
-        </div>
-    </footer>
+          </div>
+        </article>
 
-    <script src="script.js"></script>
+        <!-- Project 2: .NET Migration -->
+        <article class="proj-card fade">
+          <div class="proj-stripe stripe-dotnet"></div>
+          <div class="proj-inner">
+            <div class="proj-top">
+              <div class="proj-tags">
+                <span class="proj-tag">Software Modernisation</span>
+                <span class="proj-tag">.NET</span>
+                <span class="proj-tag">Cloud Readiness</span>
+              </div>
+              <span class="proj-badge done">Completed</span>
+            </div>
+            <h2 class="proj-title">Legacy .NET 2.0 → .NET 10 modernisation.</h2>
+            <p class="proj-summary">A business-critical application running on an end-of-life framework — vulnerable, unsupported, and blocking cloud migration. Fully modernised to .NET 10 while preserving all functionality.</p>
+            <div class="par">
+              <div class="par-col">
+                <span class="par-label">Problem</span>
+                <p>The application ran on .NET Framework 2.0 — a platform that reached end-of-life with known security vulnerabilities, no vendor support, and no compatibility with modern cloud infrastructure or deployment pipelines.</p>
+              </div>
+              <div class="par-col">
+                <span class="par-label">Action</span>
+                <ul>
+                  <li>Audited the full codebase to map all dependencies and breaking API changes.</li>
+                  <li>Rewrote and refactored application code to .NET 10 standards.</li>
+                  <li>Updated all deprecated APIs, libraries, and third-party packages.</li>
+                  <li>Tested thoroughly for regression, compatibility, and performance.</li>
+                </ul>
+              </div>
+              <div class="par-col">
+                <span class="par-label">Result</span>
+                <p>Application fully modernised to a supported, actively maintained framework. Security exposure eliminated. Cloud deployment compatibility unlocked. Long-term maintenance overhead significantly reduced.</p>
+              </div>
+            </div>
+            <div class="proj-outcome">
+              <strong>From EOL to current:</strong> .NET Framework 2.0 (2005) → .NET 10 (2024) — eliminating a 19-year-old security liability.
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: ISO 27001 Audit -->
+        <article class="proj-card fade">
+          <div class="proj-stripe stripe-security"></div>
+          <div class="proj-inner">
+            <div class="proj-top">
+              <div class="proj-tags">
+                <span class="proj-tag">GRC</span>
+                <span class="proj-tag">ISO 27001</span>
+                <span class="proj-tag">Compliance</span>
+              </div>
+              <span class="proj-badge prep">Preparing</span>
+            </div>
+            <h2 class="proj-title">Internal audit preparation — post-acquisition context.</h2>
+            <p class="proj-summary">Applying ISO 27001 knowledge to prepare a newly-acquired business for its first internal audit under the parent company's compliance framework — coordinating across teams, documenting controls, and closing gaps.</p>
+            <div class="par">
+              <div class="par-col">
+                <span class="par-label">Problem</span>
+                <p>Following Legrand's acquisition of Australian Plastic Profiles, an internal audit was scheduled for June 2026. The acquired entity had no established compliance documentation aligned to Legrand's security standards — requiring a full gap analysis and remediation effort.</p>
+              </div>
+              <div class="par-col">
+                <span class="par-label">Action</span>
+                <ul>
+                  <li>Applying ISO 27001 framework to structure audit preparation.</li>
+                  <li>Reviewing existing security controls and identifying compliance gaps.</li>
+                  <li>Documenting policies, procedures, and evidence packages.</li>
+                  <li>Coordinating with stakeholders across departments to gather evidence.</li>
+                  <li>Preparing remediation plans for identified gaps.</li>
+                </ul>
+              </div>
+              <div class="par-col">
+                <span class="par-label">Result</span>
+                <p>Audit preparation on track for June 2026. Structured documentation in progress — controls mapped, gaps identified, and remediation plans underway. First audit of this kind for the acquired entity.</p>
+              </div>
+            </div>
+            <div class="proj-outcome">
+              <strong>Context:</strong> ISO/IEC 27001 Provisional Auditor certification (PECB, Feb 2025) applied directly to a live enterprise audit scenario.
+            </div>
+          </div>
+        </article>
+
+        <!-- Placeholder -->
+        <div class="proj-placeholder fade">
+          <span>⚙</span>
+          More projects are being documented and sanitised for public viewing.<br>
+          Check back soon — or <a href="index.html#contact" style="color:var(--accent);font-weight:500;">get in touch</a> to discuss the work directly.
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="wrap">
+      <div class="contact-inner">
+        <div class="contact-kicker">Get in touch</div>
+        <h2 class="contact-title" style="font-family:'DM Serif Display',serif;">Let's build something that works.</h2>
+        <p class="contact-body">Open to conversations about IT infrastructure, cybersecurity, and AI roles — or just talking tech.</p>
+        <div class="contact-btns">
+          <a href="https://www.linkedin.com/in/limhendra/" target="_blank" rel="noopener" class="btn-light" style="display:inline-flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn →</a>
+        <a href="https://github.com/HendraLim1" target="_blank" rel="noopener" class="btn-ghost" style="display:inline-flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub →</a>
+        </div>
+        <div style="margin-top:20px;display:flex;gap:24px;font-size:13px;opacity:0.5;">
+          <span>linkedin.com/in/limhendra</span>
+          <span>github.com/HendraLim1</span>
+        </div>
+        <div class="contact-location">Sydney, NSW, Australia</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Hendra Lim · © 2026</span>
+      <span>Designed & built in Sydney</span>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, {passive:true});
+
+    // Mobile menu
+    const mobBtn = document.getElementById('mobBtn');
+    const mobMenu = document.getElementById('mobMenu');
+    mobBtn.addEventListener('click', () => {
+      mobBtn.classList.toggle('open');
+      mobMenu.classList.toggle('open');
+    });
+    mobMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobBtn.classList.remove('open');
+      mobMenu.classList.remove('open');
+    }));
+
+    // Fade in
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.1});
+    document.querySelectorAll('.fade').forEach(el => io.observe(el));
+  </script>
 </body>
 </html>
